@@ -6,7 +6,7 @@ interface textProps {
 
 const Text = ({children,className}:textProps) => {
     return (
-        <p className={`${className} text-grey  font-regular text-base leading-160`}>
+        <p className={`${className || ''} text-grey  font-regular text-base leading-160`}>
             {children}
         </p>
     )

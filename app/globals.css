@@ -17,4 +17,6 @@ body {
     --leading-160:160%;
     --leading-100:100%;
     --leading-120:120%;
+
+    --text-custom-lg:48px;
 }

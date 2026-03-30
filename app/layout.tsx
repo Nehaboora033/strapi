@@ -29,7 +29,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className={`${poppins.variable}`}>
         <Header navDetail={navDetail} />
         {children}
         <Footer />
