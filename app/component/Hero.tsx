@@ -40,7 +40,7 @@ const Hero = async () => {
   const heroDetail = heroData.data.hero
 
   return (
-    <div className='px-4 bg-cover bg-center bg-no-repeat mt-[80px] ' style={{ backgroundImage: `url('/images/png/Hero section-bg.png')` }}>
+    <div className='px-4 bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url('/images/png/Hero section-bg.png')` }}>
       <div className='max-w-[1140px] mx-auto  ' >
         <div className='flex items-center justify-between py-10 gap-5 lg:flex-row flex-col'>
           {/* left  */}

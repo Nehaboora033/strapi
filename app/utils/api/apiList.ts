@@ -16,3 +16,10 @@ export const heroDataGet = async () => {
         // url: API_URLS.LANDINGPAGE + '?populate[hero][populate]=*'
     })
 }
+
+export const trustedDataGet = async () => {
+    return await handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.LANDINGPAGE + '?populate=trusted&populate=trusted.image'
+    })
+}

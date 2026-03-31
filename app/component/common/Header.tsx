@@ -30,25 +30,12 @@ type NavData = {
 
 const Header = ({ navDetail }: { navDetail: NavData }) => {
     const [isOpen, setIsOpen] = useState(false);
-
-
-
-    const [scrolled, setScrolled] = useState(false);
-    //scrolled effect 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 10);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     const logoUrl =
         getSiteUrl(navDetail?.header?.logo?.data?.attributes?.url || "") ||
         "/images/png/logo.png"
 
     return (
-        <div className={`sm:p-5 px-3 py-5 fixed top-0 z-20 w-full  ${scrolled ? 'shadow-lg bg-white' : 'bg-transparent'} transition-all duration-300 ease-in-out`}>
+        <div className={`sm:p-5 px-3 py-5 fixed top-0 z-20 w-full bg-white`}>
             <div className='max-w-[1140px] mx-auto'>
                 <div className='flex justify-between items-center'>
 

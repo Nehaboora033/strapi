@@ -31,7 +31,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable}`}>
         <Header navDetail={navDetail} />
-        {children}
+        <div className="mt-[80px]">{children}</div>
         <Footer />
       </body>
     </html>
