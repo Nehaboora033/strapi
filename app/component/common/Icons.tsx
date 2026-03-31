@@ -29,7 +29,13 @@ const Icons: React.FC<LoginCardProps> = ({
                 />
             </svg>
         ),
-    };
+        arrow: (
+            <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.60011 8.2495L0.000274586 1.64967L1.64994 -5.76976e-07L7.42494 5.775L13.1999 -7.21092e-08L14.8496 1.64967L8.24978 8.2495C8.03099 8.46822 7.7343 8.59108 7.42494 8.59108C7.11558 8.59108 6.81889 8.46822 6.60011 8.2495Z" fill="#010101" />
+            </svg>
+        ),
+    }
+
     const addClassName = (
         icon: ReactElement<SVGElement>
     ): ReactElement<SVGElement> => {

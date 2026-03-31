@@ -13,7 +13,6 @@ export const heroDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
         url: API_URLS.LANDINGPAGE + '?populate=hero&populate=hero.cta&populate=hero.image&populate=hero.review&populate=hero.review.ratingImage&populate=hero.review.companyLogo'
-        // url: API_URLS.LANDINGPAGE + '?populate[hero][populate]=*'
     })
 }
 
@@ -21,5 +20,12 @@ export const trustedDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
         url: API_URLS.LANDINGPAGE + '?populate=trusted&populate=trusted.image'
+    })
+}
+
+export const faqDataGet = async () => {
+    return await handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.LANDINGPAGE + '?populate=Faq&populate=Faq.accordianCard'
     })
 }

@@ -23,17 +23,17 @@ const Trusted = async () => {
 
     if (!trustedData?.data?.trusted) return null
     const trustedDetail: TrustedDetail = trustedData.data
-    console.log(trustedDetail, "hello");
+    // console.log(trustedDetail, "hello");
 
     return (
         <div className='px-4 py-[100px]'>
             <style>{`
                 @keyframes marquee {
                     0% {
-                        transform: translateX(0);
+                        transform: translateX(0%);
                     }
                     100% {
-                        transform: translateX(-50%);
+                        transform: translateX(-100%);
                     }
                 }
                 .marquee-container {
@@ -48,12 +48,12 @@ const Trusted = async () => {
                     {trustedDetail.trusted?.heading}
                 </Heading>
 
-                <div className='mt-9 overflow-hidden'>
+                <div className='mt-9 overflow-hidden flex'>
                     <div className='marquee-container flex md:gap-12 gap-2 items-center'>
                         {trustedDetail?.trusted?.image?.length > 0 && trustedDetail?.trusted?.image?.map((image: TrustedImage, index: number) => (
                             <div
                                 key={index}
-                                className='flex-shrink-0 w-[180px] h-[60px] flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity'
+                                className='shrink-0 w-45 h-15 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity'
                             >
                                 <Image
                                     src={getSiteUrl(image?.url)}
@@ -65,6 +65,7 @@ const Trusted = async () => {
                             </div>
                         ))}
                     </div>
+                  
                 </div>
             </div>
         </div>
