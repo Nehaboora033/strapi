@@ -10,11 +10,7 @@ import Hamburger from 'hamburger-react'
 type NavData = {
     header: {
         logo: {
-            data: {
-                attributes: {
-                    url: string
-                }
-            }
+            url: string
         }
         links: {
             label: string
@@ -25,13 +21,10 @@ type NavData = {
         }
     }
 }
-
-
-
 const Header = ({ navDetail }: { navDetail: NavData }) => {
     const [isOpen, setIsOpen] = useState(false);
     const logoUrl =
-        getSiteUrl(navDetail?.header?.logo?.data?.attributes?.url || "") ||
+        getSiteUrl(navDetail?.header?.logo?.url || "") ||
         "/images/png/logo.png"
 
     return (
@@ -71,8 +64,6 @@ const Header = ({ navDetail }: { navDetail: NavData }) => {
                             />
                         </button>
                     </div>
-
-
                 </div>
             </div>
         </div>

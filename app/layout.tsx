@@ -26,6 +26,7 @@ export default async function RootLayout({
   if (!navData?.data) return null
 
   const navDetail = navData.data
+  // console.log(navDetail, "navDetail in layout");
 
   return (
     <html lang="en">

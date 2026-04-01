@@ -1,22 +1,33 @@
 import React from 'react'
 import Heading from './common/Heading'
-import { faqDataGet } from '../utils/api/apiList'
 
-const Faq = async () => {
-  const faqData = await faqDataGet()
-  console.log(faqData, "check faq")
-  if (!faqData?.data?.Faq) return null
+interface FaqProps {
+  title: string,
+  accordianCard: {
+    question: string,
+    answer: string,
+  },
+  ctaFaq: {
+    links: {
+      label: string,
+      url: string,
+    }
+  }
+}
 
-  const faqDetail = faqData.data
-  console.log(faqDetail, "hello");
-
+const Faq = async ({ faqDetail }: { faqDetail: FaqProps }) => {
   return (
     <div className='px-4 py-[80px]'>
       <div className='max-w-[1140px] mx-auto'>
         <Heading className=' text-center'>
-          {faqDetail.Faq.title}
+          {faqDetail?.title}
         </Heading>
-       
+        {/* Render the accordion if the data exists — checking both potential locations since it's dynamic */}
+        {/* {(faqDetail?.Faq?.accordianCard || faqDetail?.accordianCard) && (
+          <FaqAccordion items={faqDetail?.Faq?.accordianCard || faqDetail?.accordianCard} />
+        )} */}
+
+        
       </div>
     </div>
   )

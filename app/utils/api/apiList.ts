@@ -26,6 +26,6 @@ export const trustedDataGet = async () => {
 export const faqDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
-        url: API_URLS.LANDINGPAGE + '?populate=Faq&populate=Faq.accordianCard'
+        url: API_URLS.LANDINGPAGE + '?populate=Faq&populate=Faq.accordianCard&populate=Faq.ctaFaq&populate=Faq.ctaFaq.links'
     })
 }

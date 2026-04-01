@@ -25,3 +25,4 @@ trustedSlider:
 # Trusted Slider
 
 This section displays client logos in a slider and the slider made like the marquee like working don't stop.
+
