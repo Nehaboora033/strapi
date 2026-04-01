@@ -14,15 +14,15 @@ type HeroProps = {
     url: string
   }
   image: {
-        url: string,
+    url: string,
   }
   review: {
     title: string
     ratingImage: {
-          url: string,
+      url: string,
     }
     companyLogo: {
-          url: string,
+      url: string,
     }
   }
 }
@@ -67,9 +67,10 @@ const Hero = async () => {
                 </div>
               </div>
               {/* heading */}
-              <Heading className='max-w-[431px] w-full'>
-                {heroDetail.title}
-              </Heading>
+              <Heading
+                className="max-w-[431px]"
+                dangerouslySetInnerHTML={{ __html: heroDetail.title }}
+              />
               <Text className="mb-[10px]">
                 {heroDetail.description}
               </Text>

@@ -65,7 +65,6 @@ const Trusted = async () => {
                             </div>
                         ))}
                     </div>
-                  
                 </div>
             </div>
         </div>

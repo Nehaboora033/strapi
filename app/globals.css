@@ -10,13 +10,17 @@ body {
 
 @theme {
   --color-green: #19AE1A;
-    --color-black:#010101;
-    --color-white:#FAFAFA;
-    --color-grey:#4D4D4D;
+  --color-black: #010101;
+  --color-white: #FAFAFA;
+  --color-grey: #4D4D4D;
 
-    --leading-160:160%;
-    --leading-100:100%;
-    --leading-120:120%;
+  --leading-160: 160%;
+  --leading-100: 100%;
+  --leading-120: 120%;
 
-    --text-custom-lg:48px;
+  --text-custom-lg: 48px;
+}
+
+.text-green {
+  color: #19AE1A;
 }

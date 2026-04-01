@@ -4,7 +4,7 @@ import Loved from './component/Loved'
 // import Faq from './component/Faq'
 import Trusted from './component/Trusted'
 import Faq from './component/Faq'
-import { faqDataGet } from './utils/api/apiList'
+import { faqDataGet, lovedDataGet } from './utils/api/apiList'
 // import Faq from './component/Faq'
 
 const page = async () => {
@@ -12,15 +12,20 @@ const page = async () => {
   const faqData = await faqDataGet()
   if (!faqData?.data?.Faq) return null
   const faqDetail = faqData.data.Faq
-  console.log(faqDetail, "faq dara");
+  // console.log(faqDetail, "faq dara");
 
-// loved api call
+  // loved api call
+  const lovedData = await lovedDataGet()
+  console.log(lovedData, "loved")
+  if (!lovedData?.data?.loved) return null
+  const lovedDetail = lovedData.data.loved
+  console.log(lovedDetail, "loved data");
 
   return (
     <div>
       <Hero />
       <Trusted />
-      <Loved />
+      <Loved  lovedDetail={lovedDetail}/>
       <Faq faqDetail={faqDetail} />
     </div>
   )

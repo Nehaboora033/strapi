@@ -33,6 +33,6 @@ export const faqDataGet = async () => {
 export const lovedDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
-        url: API_URLS.LANDINGPAGE + '?populate=Loved'
+        url: API_URLS.LANDINGPAGE + '?populate=loved'
     })
 }
