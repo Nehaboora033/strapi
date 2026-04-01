@@ -8,11 +8,14 @@ import { faqDataGet } from './utils/api/apiList'
 // import Faq from './component/Faq'
 
 const page = async () => {
+  // faq api call
   const faqData = await faqDataGet()
-  console.log(faqData, "check faq")
   if (!faqData?.data?.Faq) return null
   const faqDetail = faqData.data.Faq
   console.log(faqDetail, "faq dara");
+
+// loved api call
+
   return (
     <div>
       <Hero />

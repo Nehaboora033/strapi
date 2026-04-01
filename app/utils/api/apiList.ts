@@ -29,3 +29,10 @@ export const faqDataGet = async () => {
         url: API_URLS.LANDINGPAGE + '?populate=Faq&populate=Faq.accordianCard&populate=Faq.ctaFaq&populate=Faq.ctaFaq.links'
     })
 }
+
+export const lovedDataGet = async () => {
+    return await handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.LANDINGPAGE + '?populate=Loved'
+    })
+}
