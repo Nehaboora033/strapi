@@ -44,15 +44,7 @@ const Loved = ({ lovedDetail }: { lovedDetail: lovedProps }) => {
           </Text>
         </div>
 
-        {/* Add custom style for continuous linear sliding (marquee effect) */}
-        <style dangerouslySetInnerHTML={{__html: `
-          .loved-swiper .swiper-wrapper {
-            transition-timing-function: linear !important;
-          }
-        `}} />
-        
         <Swiper
-          className="loved-swiper"
           modules={[Autoplay]}
           spaceBetween={20}
           slidesPerView={3}

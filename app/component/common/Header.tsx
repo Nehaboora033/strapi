@@ -6,6 +6,7 @@ import Button from './Button'
 import Image from 'next/image'
 import { getSiteUrl } from '@/app/utils/commonFun'
 import Hamburger from 'hamburger-react'
+import { usePathname } from 'next/navigation'
 
 type NavData = {
     header: {
@@ -23,6 +24,7 @@ type NavData = {
 }
 const Header = ({ navDetail }: { navDetail: NavData }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
     const logoUrl =
         getSiteUrl(navDetail?.header?.logo?.url || "") ||
         "/images/png/logo.png"
@@ -43,11 +45,18 @@ const Header = ({ navDetail }: { navDetail: NavData }) => {
                     </Link>
 
                     <div className={`flex items-center gap-[32px]  ${isOpen ? 'right-0' : 'max-lg:right-[-100%]'} max-lg:flex-col max-lg:items-center z-[10] max-lg:justify-center transition-[right] max-lg:fixed max-lg:top-0 duration-800 ease-in-out max-sm:w-full max-lg:w-[100%] max-lg:h-full max-lg:bg-white `}>
-                        {navDetail?.header?.links?.map((item, index) => (
-                            <Link key={index} href={item.url} className='text-nowrap'>
-                                {item.label}
-                            </Link>
-                        ))}
+                        {navDetail?.header?.links?.map((item, index) => {
+                            const isActive = pathname === item.url;
+                            return (
+                                <Link 
+                                    key={index} 
+                                    href={item.url} 
+                                    className={`text-nowrap transition-colors ${isActive ? 'text-green font-semibold' : 'hover:text-green'}`}
+                                >
+                                    {item.label}
+                                </Link>
+                            )
+                        })}
                     </div>
 
                     <div className='flex items-center'>

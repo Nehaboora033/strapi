@@ -49,7 +49,7 @@ const Hero = async () => {
               {/* google rating */}
               <div className='flex flex-col gap-2 '>
                 <p className='text-black font-normal text-base leading-120'>
-                  Highly Rated on Google
+                  {heroDetail?.review?.title}
                 </p>
                 <div className='flex items-center gap-3'>
                   <Image
