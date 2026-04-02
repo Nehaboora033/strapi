@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "./component/common/Header";
 import Footer from "./component/common/Footer";
-import { navigationDataGet } from "./utils/api/apiList";
+import { footerDataGet, navigationDataGet } from "./utils/api/apiList";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -21,19 +21,27 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // header
   const navData = await navigationDataGet()
 
   if (!navData?.data) return null
 
   const navDetail = navData.data
   // console.log(navDetail, "navDetail in layout");
+  // footer
+  const footerData = await footerDataGet()
+
+  if (!footerData?.data) return null
+
+  const footerDetail = footerData.data.footer
+
 
   return (
     <html lang="en">
       <body className={`${poppins.variable}`}>
         <Header navDetail={navDetail} />
         <div className="mt-[80px]">{children}</div>
-        <Footer />
+        <Footer footerDetail={footerDetail} />
       </body>
     </html>
   );

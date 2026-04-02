@@ -36,3 +36,10 @@ export const lovedDataGet = async () => {
         url: API_URLS.LANDINGPAGE + '?populate=loved&populate=loved.sliderCard&populate=loved.sliderCard.profileImage&populate=loved.sliderCard.companyRating.companyLogo&populate=loved.sliderCard.companyRating.ratingStatus'
     })
 }
+
+export const footerDataGet = async () => {
+    return await handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.GLOBAL + '?populate=footer&populate=footer.logo&populate=footer.socialLinks&populate=footer.socialLinks.icon&populate=footer.content&populate=footer.content.icon&populate=footer.sectionLinks&populate=footer.sectionLinks.links'
+    })
+}
