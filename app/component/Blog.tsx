@@ -3,10 +3,17 @@ import Heading from './common/Heading'
 import Text from './common/Text'
 import Image from 'next/image'
 import Link from 'next/link'
-import {  BLOG_DETAILS } from '../utils/helper'
-import { slugify } from '../utils/commonFun'
+import { getSiteUrl, slugify } from '../utils/commonFun'
+import { blogDataGet } from '../utils/api/apiList'
+import { blogProps } from '../utils/type'
 
-const Blog = () => {
+const Blog = async () => {
+
+    const blogData = await blogDataGet()
+    // console.log(blogData,"hello blog")
+    const blogInfo:blogProps[] = blogData.data
+    // console.log(blogInfo, "blogInfo")
+
     return (
         <div className='px-4 py-10'>
             <div className='max-w-[1140px] mx-auto'>
@@ -19,13 +26,13 @@ const Blog = () => {
                     </Text>
                 </div>
                 <div className='grid grid-cols-3 gap-4 '>
-                    {BLOG_DETAILS.map((obj, index) => (
+                    {blogInfo.map((obj, index) => (
                         <Link key={index} href={`/blog/${slugify(obj.title)}`} className='block h-full'>
                             <div className='border rounded-lg p-4 h-full flex flex-col' >
                                 <Image
-                                    src={obj.image}
+                                    src={getSiteUrl(obj.thumbnail.url)}
                                     alt='image'
-                                    className='object-cover mb-4 w-full h-[280px] rounded-md' width={350}
+                                    className='object- cover mb-4 w-full h-[280px] rounded-md' width={350}
                                     height={350}
 
                                 />
@@ -35,10 +42,9 @@ const Blog = () => {
                                 <p className='text-gray-600'>
                                     {obj.description}
                                 </p>
-                                
+
                             </div>
                         </Link>
-
                     ))}
                 </div>
             </div>

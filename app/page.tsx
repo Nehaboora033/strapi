@@ -16,10 +16,10 @@ const page = async () => {
 
   // loved api call
   const lovedData = await lovedDataGet()
-  console.log(lovedData, "loved")
+  // console.log(lovedData, "loved")
   if (!lovedData?.data?.loved) return null
   const lovedDetail = lovedData.data.loved
-  console.log(lovedDetail, "loved data");
+  // console.log(lovedDetail, "loved data");
 
   return (
     <div>

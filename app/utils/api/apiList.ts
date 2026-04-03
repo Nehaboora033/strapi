@@ -43,3 +43,11 @@ export const footerDataGet = async () => {
         url: API_URLS.GLOBAL + '?populate=footer&populate=footer.logo&populate=footer.socialLinks&populate=footer.socialLinks.icon&populate=footer.content&populate=footer.content.icon&populate=footer.sectionLinks&populate=footer.sectionLinks.links'
     })
 }
+
+
+export const blogDataGet = async () => {
+    return await handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.BLOG +'?populate=thumbnail&populate=detailBlog&populate=detailBlog.image'
+    })
+}

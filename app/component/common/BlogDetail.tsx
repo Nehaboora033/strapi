@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import Heading from './Heading'
 import Text from './Text'
+import { getSiteUrl } from '@/app/utils/commonFun'
+import { blogProps } from '@/app/utils/type'
 
-const BlogDetail = ({ blogDetail }: { blogDetail: any }) => {
+const BlogDetail = async ({ blogDetail }: { blogDetail: blogProps }) => {
     return (
         <div className='p-10 px-4'>
             <div className='max-w-[1140px] mx-auto'>
@@ -16,7 +18,7 @@ const BlogDetail = ({ blogDetail }: { blogDetail: any }) => {
                         </Text>
                         <div className=''>
                             <Image
-                                src={blogDetail.image}
+                                src={getSiteUrl(blogDetail.thumbnail.url)}
                                 alt='image'
                                 width={400}
                                 height={100}
@@ -24,6 +26,14 @@ const BlogDetail = ({ blogDetail }: { blogDetail: any }) => {
                             />
                         </div>
                     </div>
+
+                    {blogDetail.detailBlog?.map((obj, i: number) => (
+                        <div className='' key={i}>
+                            <h2>
+                                {obj.title}
+                            </h2>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div >
