@@ -25,3 +25,20 @@ export interface contactProps {
         description: string,
     }[],
 }
+
+export interface formSubmitProps {
+    id:number,
+    name: string,
+    email: string,
+    phoneNumber: number,
+    message: string,
+}[]
+
+
+export interface submitUserProps {
+    title: string,
+    description: string,
+    headersubmission: {
+        title: string,
+    }[]
+}

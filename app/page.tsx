@@ -6,7 +6,7 @@ import Faq from './component/Faq'
 import { contactDataGet, faqDataGet, lovedDataGet } from './utils/api/apiList'
 import Blog from './component/Blog'
 import ContactForm from './component/common/ContactForm'
-// import SvgMoved from './component/SvgMoved'
+import SingleContactDetail from './component/common/SingleContactDetail'
 
 const page = async () => {
   // faq api call
@@ -37,7 +37,7 @@ const page = async () => {
       <Blog />
       <Faq faqDetail={faqDetail} />
       <ContactForm contactDetail={contactDetail} />
-      {/* <SvgMoved /> */}
+      <SingleContactDetail />
     </div>
   )
 }

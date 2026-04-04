@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GET_METHOD, handleApiRequest, POST_METHOD } from "./fetchResponse"
 import { API_URLS } from "./fetchUrls"
 
@@ -49,21 +50,40 @@ export const blogDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
         // url: API_URLS.BLOG + '?populate=thumbnail&sort=publishedAt:desc&populate=detailBlog&populate=detailBlog.image'
-         url: API_URLS.BLOG + '?populate=thumbnail&populate=detailBlog&populate=detailBlog.image'
+        url: API_URLS.BLOG + '?populate=thumbnail&populate=detailBlog&populate=detailBlog.image'
 
     })
 }
 
-export const contactDataGet=async ()=>{
-return await handleApiRequest({
-    method:GET_METHOD,
-    url:API_URLS.CONTACTPAGE +'?populate=operations&populate=operations.details'
-})
+export const contactDataGet = async () => {
+    return await handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.CONTACTPAGE + '?populate=operations&populate=operations.details'
+    })
 }
 
-export const postFormData=async ()=>{
-return await handleApiRequest({
-    method:POST_METHOD,
-    url:API_URLS.CONTACT_FORM
-})
+export const postFormData = async (data: any) => {
+    return await handleApiRequest({
+        method: POST_METHOD,
+        url: API_URLS.CONTACT_FORM,
+        data
+    })
 }
+
+export const contactFormSubmitUser = async () => {
+    return handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.CONTACT_FORM, 
+    })
+}
+
+
+
+export const contactFormSubmitUI = async () => {
+    return handleApiRequest({
+        method: GET_METHOD,
+        url: API_URLS.CONTACT_SUMBIT_DETAILS + '?populate=contactSubmission&populate=contactSubmission.headersubmission'
+    })
+}
+
+

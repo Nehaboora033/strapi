@@ -3,5 +3,6 @@ export const API_URLS={
     LANDINGPAGE:"/landing-page/",
     BLOG:"/blogs/",
     CONTACTPAGE:"/contact-us/",
-    CONTACT_FORM:"/contacts/"
+    CONTACT_FORM:"/contacts/",  // submit page user
+    CONTACT_SUMBIT_DETAILS:"/contact-detail/" //submit page ui 
 }

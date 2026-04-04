@@ -8,7 +8,7 @@ const page = async () => {
     // console.log(contactData.data, "contact")
     if (!contactData?.data?.operations) return null
     const contactDetail = contactData.data.operations
-    console.log(contactDetail, "detail contact")
+    // console.log(contactDetail, "detail contact")
 
   return (
     <div>

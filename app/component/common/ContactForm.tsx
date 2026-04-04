@@ -1,12 +1,81 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Button from './Button'
 import { contactProps } from '@/app/utils/type'
+import Input from './Input';
+import { postFormData } from '@/app/utils/api/apiList';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 
 const ContactForm = ({ contactDetail }: { contactDetail: contactProps }) => {
     const topThreeDetails = contactDetail?.details?.slice(0, 3) || [];
     const bottomTwoDetails = contactDetail?.details?.slice(3, 5) || [];
-    
-   
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+    })
+
+    const [errors, setErrors] = useState<any>({})
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }))
+    }
+
+    const validate = () => {
+        let newErrors: any = {}
+
+        if (!formData.name.trim()) {
+            newErrors.name = "Name is required"
+        }
+
+        if (!formData.email) {
+            newErrors.email = "Email is required"
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = "Invalid email"
+        }
+
+        if (!formData.phoneNumber) {
+            newErrors.phoneNumber = "Phone is required"
+        }
+
+        if (!formData.message.trim()) {
+            newErrors.message = "Message is required"
+        }
+
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+
+        if (validate()) {
+            console.log("Form Data:", formData)
+
+            try {
+                await postFormData({ data: formData })
+
+                alert("goood")
+                // Clear the form upon a successful submission
+                setFormData({
+                    name: "",
+                    email: "",
+                    phoneNumber: "",
+                    message: "",
+                })
+            } catch (error) {
+                alert("helo ther ")
+            }
+        }
+    }
+
     return (
         <div className='px-4 py-[80px]'>
             <div className='max-w-[1140px] mx-auto'>
@@ -60,32 +129,47 @@ const ContactForm = ({ contactDetail }: { contactDetail: contactProps }) => {
                         <h2 className='text-[28px] font-semibold text-green mb-2'>Contact Us</h2>
                         <p className='text-grey text-[14px] mb-8'>Fastest way to get your quote send us photos directly.</p>
 
-                        <form className='flex flex-col gap-4'>
+                        <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
                             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                                <input
-                                    type="text"
-                                    placeholder="Name"
-                                    className='w-full bg-[#FAFAFA] border border-gray-100 rounded-xl px-4 py-3 outline-none focus:border-green/50 focus:bg-white transition-colors text-[14px]'
+                                <Input
+                                    type='text'
+                                    name='name'
+                                    placeholder='Name'
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    error={errors.name}
                                 />
-                                <input
+                                <Input
                                     type="email"
+                                    name="email"
                                     placeholder="Email"
-                                    className='w-full bg-[#FAFAFA] border border-gray-100 rounded-xl px-4 py-3 outline-none focus:border-green/50 focus:bg-white transition-colors text-[14px]'
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    error={errors.email}
                                 />
                             </div>
-                            <input
+                            <Input
                                 type="tel"
+                                name="phoneNumber"
                                 placeholder="Phone"
-                                className='w-full bg-[#FAFAFA] border border-gray-100 rounded-xl px-4 py-3 outline-none focus:border-green/50 focus:bg-white transition-colors text-[14px]'
+                                value={formData.phoneNumber}
+                                onChange={handleChange}
+                                error={errors.phoneNumber}
                             />
-                            <textarea
-                                placeholder="Message..."
-                                rows={4}
-                                className='w-full bg-[#FAFAFA] border border-gray-100 rounded-xl px-4 py-3 outline-none focus:border-green/50 focus:bg-white transition-colors text-[14px] resize-none'
-                            ></textarea>
+                            <div className="flex flex-col gap-1 w-full">
+                                <textarea
+                                    name="message"
+                                    placeholder="Message..."
+                                    rows={4}
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className={`w-full bg-[#FAFAFA] border ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-100 focus:border-green/50'} rounded-xl px-4 py-3 outline-none focus:bg-white transition-colors text-[14px] resize-none`}
+                                ></textarea>
+                                {errors.message && <span className="text-red-500 text-[12px] px-1">{errors.message}</span>}
+                            </div>
 
                             <div className='flex flex-col gap-3 mt-2'>
-                                <Button className=''>
+                                <Button >
                                     Send
                                 </Button>
                                 <Button
