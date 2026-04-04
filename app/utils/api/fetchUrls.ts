@@ -1,5 +1,7 @@
 export const API_URLS={
     GLOBAL:"/global/",
     LANDINGPAGE:"/landing-page/",
-    BLOG:"/blogs/"
+    BLOG:"/blogs/",
+    CONTACTPAGE:"/contact-us/",
+    CONTACT_FORM:"/contacts/"
 }

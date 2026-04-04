@@ -4,8 +4,9 @@ export interface blogProps {
     thumbnail: {
         url: string,
     }
-    
-    detailBlog: BlogNested[]
+
+    detailBlog: BlogNested[],
+    lists: string[],
 }
 
 export interface BlogNested {
@@ -13,5 +14,14 @@ export interface BlogNested {
     description: string
     image: {
         url: string,
-    }
+    },
+    lists: string[],
+}
+
+export interface contactProps {
+    title: string,
+    details: {
+        title: string,
+        description: string,
+    }[],
 }

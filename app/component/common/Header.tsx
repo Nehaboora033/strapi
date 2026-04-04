@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from './Button'
 import Image from 'next/image'
 import { getSiteUrl } from '@/app/utils/commonFun'

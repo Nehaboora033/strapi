@@ -11,8 +11,15 @@ const Blog = async () => {
 
     const blogData = await blogDataGet()
     // console.log(blogData,"hello blog")
-    const blogInfo:blogProps[] = blogData.data
+    const blogInfo: blogProps[] = blogData.data
     // console.log(blogInfo, "blogInfo")
+
+    //  Client - side fallback sort if publish date exists in response
+    // const sortedBlogs = [...blogInfo].sort((a: any, b: any) => {
+    //     const aDate = a?.publishedAt ? new Date(a.publishedAt).getTime() : 0
+    //     const bDate = b?.publishedAt ? new Date(b.publishedAt).getTime() : 0
+    //     return bDate - aDate
+    // })
 
     return (
         <div className='px-4 py-10'>

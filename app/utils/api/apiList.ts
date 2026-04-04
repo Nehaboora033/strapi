@@ -1,4 +1,4 @@
-import { GET_METHOD, handleApiRequest } from "./fetchResponse"
+import { GET_METHOD, handleApiRequest, POST_METHOD } from "./fetchResponse"
 import { API_URLS } from "./fetchUrls"
 
 export const navigationDataGet = async () => {
@@ -48,6 +48,22 @@ export const footerDataGet = async () => {
 export const blogDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
-        url: API_URLS.BLOG +'?populate=thumbnail&populate=detailBlog&populate=detailBlog.image'
+        // url: API_URLS.BLOG + '?populate=thumbnail&sort=publishedAt:desc&populate=detailBlog&populate=detailBlog.image'
+         url: API_URLS.BLOG + '?populate=thumbnail&populate=detailBlog&populate=detailBlog.image'
+
     })
+}
+
+export const contactDataGet=async ()=>{
+return await handleApiRequest({
+    method:GET_METHOD,
+    url:API_URLS.CONTACTPAGE +'?populate=operations&populate=operations.details'
+})
+}
+
+export const postFormData=async ()=>{
+return await handleApiRequest({
+    method:POST_METHOD,
+    url:API_URLS.CONTACT_FORM
+})
 }

@@ -35,6 +35,12 @@ body {
 }
 
 
+.prose span {
+  font-weight: 600;
+  color:green;
+}
+
+
 /* Fade In Scale */
 @keyframes fade-in-scale {
   0% {

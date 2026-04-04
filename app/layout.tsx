@@ -14,6 +14,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Strapi",
   description: "website with frontend and backend",
+  icons:{
+    icon:"/images/svg/logo.svg",
+  }
+
 };
 
 export default async function RootLayout({
@@ -28,6 +32,7 @@ export default async function RootLayout({
 
   const navDetail = navData.data
   // console.log(navDetail, "navDetail in layout");
+
   // footer
   const footerData = await footerDataGet()
 
@@ -40,7 +45,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable}`}>
         <Header navDetail={navDetail} />
-        <div className="mt-[80px]">{children}</div>
+        <div className="pt-[91px]">{children}</div>
         <Footer footerDetail={footerDetail} />
       </body>
     </html>
