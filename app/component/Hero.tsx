@@ -67,10 +67,10 @@ const Hero = async () => {
                 </div>
               </div>
               {/* heading */}
-              <Heading
-                className="max-w-[431px]"
-                dangerouslySetInnerHTML={{ __html: heroDetail.title }}
-              />
+              <h2 className='font-semibold text-custom-lg'
+                dangerouslySetInnerHTML={{ __html: heroDetail.title }}>
+              </h2>
+             
               <Text className="mb-[10px]">
                 {heroDetail.description}
               </Text>

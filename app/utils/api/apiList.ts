@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { GET_METHOD, handleApiRequest, POST_METHOD } from "./fetchResponse"
+import { DELETE_METHOD, GET_METHOD, handleApiRequest, POST_METHOD, PUT_METHOD } from "./fetchResponse"
 import { API_URLS } from "./fetchUrls"
 
 export const navigationDataGet = async () => {
@@ -46,6 +46,7 @@ export const footerDataGet = async () => {
 }
 
 
+// blog
 export const blogDataGet = async () => {
     return await handleApiRequest({
         method: GET_METHOD,
@@ -54,6 +55,17 @@ export const blogDataGet = async () => {
 
     })
 }
+
+
+// product slug
+
+export const productDataGet = async (documentId?: string) => {
+    return await handleApiRequest({
+        method: GET_METHOD, 
+        url: API_URLS.PRODUCT + (documentId ? `/${documentId}` : '')+ '?populate=thumbnail&populate=productDetail&populate=productDetail.keyPoints'
+    })
+}
+// contact
 
 export const contactDataGet = async () => {
     return await handleApiRequest({
@@ -70,10 +82,10 @@ export const postFormData = async (data: any) => {
     })
 }
 
-export const contactFormSubmitUser = async () => {
+export const contactFormSubmitUser = async (documentId?: string) => {
     return handleApiRequest({
         method: GET_METHOD,
-        url: API_URLS.CONTACT_FORM, 
+        url: API_URLS.CONTACT_FORM + (documentId ? `/${documentId}` : ''),
     })
 }
 
@@ -83,6 +95,24 @@ export const contactFormSubmitUI = async () => {
     return handleApiRequest({
         method: GET_METHOD,
         url: API_URLS.CONTACT_SUMBIT_DETAILS + '?populate=contactSubmission&populate=contactSubmission.headersubmission'
+    })
+}
+
+
+
+export const FormUserUpdate = async (data: any, id: string) => {
+    return handleApiRequest({
+        method: PUT_METHOD,
+        url: API_URLS.CONTACT_FORM + `/${id}`,
+        data
+    })
+}
+
+export const FormUseDelete = async (id: string) => {
+    return handleApiRequest({
+        method: DELETE_METHOD,
+        url: API_URLS.CONTACT_FORM + `/${id}`,
+
     })
 }
 

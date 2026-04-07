@@ -27,11 +27,12 @@ export interface contactProps {
 }
 
 export interface formSubmitProps {
-    id:number,
+    id: number,
     name: string,
     email: string,
-    phoneNumber: number,
+    phoneNumber: string,
     message: string,
+    documentId: string,
 }[]
 
 
@@ -41,4 +42,27 @@ export interface submitUserProps {
     headersubmission: {
         title: string,
     }[]
+}
+
+
+export interface productProps {
+    title: string,
+    description: string,
+    thumbnail: {
+        url: string,
+    },
+    documentId: string,
+    productDetail: productDetailProps,
+}
+
+export interface productDetailProps {
+    heading: string,
+    description: string,
+    keyPoints: keyPointsProps[],
+
+}
+
+export interface keyPointsProps {
+    title: string,
+    list: string,
 }

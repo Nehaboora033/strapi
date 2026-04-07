@@ -40,4 +40,13 @@ body {
   color:green;
 }
 
+h2 span {
+  color: green;  
+}
 
+.points span{
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+
+}

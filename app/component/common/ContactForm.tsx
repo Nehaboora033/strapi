@@ -4,6 +4,7 @@ import Button from './Button'
 import { contactProps } from '@/app/utils/type'
 import Input from './Input';
 import { postFormData } from '@/app/utils/api/apiList';
+import { toast } from 'react-toastify';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
@@ -62,7 +63,7 @@ const ContactForm = ({ contactDetail }: { contactDetail: contactProps }) => {
             try {
                 await postFormData({ data: formData })
 
-                alert("goood")
+               toast.success("submitted form")
                 // Clear the form upon a successful submission
                 setFormData({
                     name: "",
@@ -71,7 +72,7 @@ const ContactForm = ({ contactDetail }: { contactDetail: contactProps }) => {
                     message: "",
                 })
             } catch (error) {
-                alert("helo ther ")
+                toast.error("got the error on submit ")
             }
         }
     }
@@ -163,7 +164,7 @@ const ContactForm = ({ contactDetail }: { contactDetail: contactProps }) => {
                                     rows={4}
                                     value={formData.message}
                                     onChange={handleChange}
-                                    className={`w-full bg-[#FAFAFA] border ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-100 focus:border-green/50'} rounded-xl px-4 py-3 outline-none focus:bg-white transition-colors text-[14px] resize-none`}
+                                    className={`w-full bg-[#FAFAFA] border  ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-green focus:border-green/50'} rounded-xl px-4 py-3 outline-none focus:bg-white transition-colors text-[14px] resize-none`}
                                 ></textarea>
                                 {errors.message && <span className="text-red-500 text-[12px] px-1">{errors.message}</span>}
                             </div>
@@ -171,10 +172,6 @@ const ContactForm = ({ contactDetail }: { contactDetail: contactProps }) => {
                             <div className='flex flex-col gap-3 mt-2'>
                                 <Button >
                                     Send
-                                </Button>
-                                <Button
-                                    className=''>
-                                    Start a WhatsApp Chat
                                 </Button>
                             </div>
                         </form>

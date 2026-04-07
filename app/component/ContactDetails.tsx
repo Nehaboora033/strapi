@@ -5,16 +5,9 @@ import Heading from './common/Heading';
 import { contactFormSubmitUI, contactFormSubmitUser } from '../utils/api/apiList';
 import { formSubmitProps, submitUserProps } from '../utils/type';
 
-// const submissions = [
-//     { id: 2, name: 'Deep', email: 'deepkumar45@gmail.com', phone: '1234567898', message: 'hello deep' },
-//     { id: 4, name: 'Rinkle Poonia', email: 'rinklepoonia889@gmail.com', phone: '343256783', message: 'hello Rinkle' },
-//     { id: 6, name: 'Radha', email: 'Radhapoonia99@gmail.com', phone: '2897345762', message: 'hello radha' },
-//     { id: 8, name: 'Simran', email: 'simrankapoor34@gmail.com', phone: '445326784', message: 'hello simran' },
-// ];
-
 const ContactDetails = async () => {
     const submitDataUser = await contactFormSubmitUser();
-    console.log(submitDataUser, "submit result");
+    // console.log(submitDataUser, "submit result");
     if (!submitDataUser.data) return null
     const SubmitDetailsUser = submitDataUser.data
 
@@ -61,7 +54,7 @@ const ContactDetails = async () => {
                                         <td className="py-4 px-6 text-[14px] text-gray-500">{sub.phoneNumber}</td>
                                         <td className="py-4 px-6 text-[14px] text-gray-600">{sub.message}</td>
                                         <td className="py-4 px-6">
-                                            <Link href={`/contact-details/${sub.id}`}>
+                                            <Link href={`/contact-details/${sub.documentId}`}>
                                                 <Button className=" px-5! 
                                                 py-[6px]! rounded-[6px]! text-[11px]">
                                                     Edit

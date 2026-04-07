@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./component/common/Header";
 import Footer from "./component/common/Footer";
 import { footerDataGet, navigationDataGet } from "./utils/api/apiList";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -14,8 +15,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Strapi",
   description: "website with frontend and backend",
-  icons:{
-    icon:"/images/svg/logo.svg",
+  icons: {
+    icon: "/images/svg/logo.svg",
   }
 
 };
@@ -47,6 +48,7 @@ export default async function RootLayout({
         <Header navDetail={navDetail} />
         <div className="pt-[91px]">{children}</div>
         <Footer footerDetail={footerDetail} />
+        <ToastContainer />
       </body>
     </html>
   );
