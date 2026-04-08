@@ -61,8 +61,8 @@ export const blogDataGet = async () => {
 
 export const productDataGet = async (documentId?: string) => {
     return await handleApiRequest({
-        method: GET_METHOD, 
-        url: API_URLS.PRODUCT + (documentId ? `/${documentId}` : '')+ '?populate=thumbnail&populate=productDetail&populate=productDetail.keyPoints'
+        method: GET_METHOD,
+        url: API_URLS.PRODUCT + (documentId ? `/${documentId}` : '') + '?populate=thumbnail&populate=productDetail&populate=productDetail.keyPoints'
     })
 }
 // contact
@@ -117,3 +117,12 @@ export const FormUseDelete = async (id: string) => {
 }
 
 
+// student 
+
+export const postStudentData = async (data: any) => {
+    return await handleApiRequest({
+        method: POST_METHOD,
+        url: API_URLS.STUDENT_DETAILS,
+        data
+    })
+}

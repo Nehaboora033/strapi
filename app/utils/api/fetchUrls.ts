@@ -5,5 +5,6 @@ export const API_URLS={
     PRODUCT:"/products",
     CONTACTPAGE:"/contact-us/",
     CONTACT_FORM:"/contacts",  // submit page user
-    CONTACT_SUMBIT_DETAILS:"/contact-detail/" //submit page ui 
+    CONTACT_SUMBIT_DETAILS:"/contact-detail/" ,//submit page ui 
+    STUDENT_DETAILS:"/student-details"
 }

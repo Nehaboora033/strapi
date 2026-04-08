@@ -7,6 +7,7 @@ import { contactDataGet, faqDataGet, lovedDataGet } from './utils/api/apiList'
 import Blog from './component/Blog'
 import ContactForm from './component/common/ContactForm'
 import Product from './component/Product'
+import StudentDetails from './component/StudentDetails'
 
 const page = async () => {
   // faq api call
@@ -38,7 +39,7 @@ const page = async () => {
       <Faq faqDetail={faqDetail} />
       <ContactForm contactDetail={contactDetail} />
       <Product/>
-      
+      <StudentDetails/>
     </div>
   )
 }
